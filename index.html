@@ -129,7 +129,7 @@
           right: auto;
           bottom: auto;
           width: calc(100% - 2rem);
-          max-height: min(70dvh, 34rem);
+          max-height: min(78dvh, 38rem);
           margin: 0;
           transform: translate(-50%, -50%);
           border-radius: 1.25rem;
@@ -360,6 +360,30 @@
       .project-dialog > div {
         overscroll-behavior: contain;
         -webkit-overflow-scrolling: touch;
+      }
+
+      #young-dialog[open] {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #young-dialog > div:first-child {
+        min-height: 0;
+        max-height: none !important;
+        flex: 1 1 auto;
+      }
+
+      .project-dialog__footer {
+        flex: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: #1c1c1e;
+        padding: 0.875rem 1.25rem calc(0.875rem + env(safe-area-inset-bottom));
+      }
+
+      @media (max-width: 640px) {
+        .project-dialog__footer > a {
+          width: 100% !important;
+        }
       }
 
       .project-dialog__close-button {
@@ -635,7 +659,7 @@
             </button>
           </form>
         </div>
-        <p class="mt-5 text-sm leading-relaxed text-white/72">BudgeMind, kişisel finans verilerini daha anlaşılır hâle getirmek ve kullanıcının günlük para kararlarını hızlandırmak için tasarlanmış yapay zekâ destekli bir uygulamadır.</p>
+        <p class="mt-5 text-base font-medium leading-7 text-white/80 sm:text-[1.0625rem]">BudgeMind, kullanıcının finansal verilerini tek yerde takip etmesini sağlayan yapay zekâ destekli bir bütçe yönetimi uygulamasıdır. Gemini API desteğiyle görsel, PDF ve ses kayıtlarını analiz ederek anlamlı harcama içgörüleri üretir; yerleşik asistan ise bütçe hedeflerine göre kişiselleştirilmiş öneriler ve yönlendirmeler sunar.</p>
         <div class="mt-5 grid gap-3 sm:grid-cols-2">
           <div class="rounded-2xl border border-white/10 bg-white/[0.055] p-4">
             <h3 class="font-bold text-white">React + Tailwind CSS</h3>
@@ -666,7 +690,7 @@
             </button>
           </form>
         </div>
-        <p class="mt-5 text-sm leading-relaxed text-white/72">YouNG için, markanın yeni nesil ve enerjik yaklaşımını öne çıkaran; ziyaretçinin içeriğe kolayca ulaşabildiği, mobil öncelikli bir web deneyimi tasarlandı.</p>
+        <p class="mt-5 text-base font-medium leading-7 text-white/80 sm:text-[1.0625rem]">YouNG için, markanın yeni nesil ve enerjik yaklaşımını öne çıkaran; ziyaretçinin içeriğe kolayca ulaşabildiği, mobil öncelikli bir web deneyimi tasarlandı.</p>
         <div class="mt-5 grid gap-3 sm:grid-cols-2">
           <div class="rounded-2xl border border-white/10 bg-white/[0.055] p-4">
             <h3 class="font-bold text-white">Arayüz tasarımı</h3>
@@ -681,7 +705,9 @@
             <p class="mt-1.5 text-sm leading-relaxed text-white/60">Butonlar, yönlendirmeler ve sayfa geçişleri ziyaretçinin bir sonraki adımı açıkça görmesine yardımcı olur.</p>
           </div>
         </div>
-        <a href="https://younewgeneration.com" target="_blank" rel="noreferrer" class="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-electric px-4 py-2.5 text-sm font-bold text-ink transition-colors hover:bg-electric/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:w-auto">
+      </div>
+      <div class="project-dialog__footer">
+        <a href="https://younewgeneration.com" target="_blank" rel="noreferrer" class="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-electric px-4 py-2.5 text-sm font-bold text-ink transition-colors hover:bg-electric/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:w-auto">
           Web sitesini ziyaret et <i data-lucide="external-link" class="h-4 w-4" aria-hidden="true"></i>
         </a>
       </div>
