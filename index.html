@@ -109,6 +109,7 @@
         border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 1.5rem;
         padding: 0;
+        overflow: hidden;
         color: white;
         background: rgba(15, 16, 22, 0.94);
         box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -121,10 +122,16 @@
       }
 
       @media (max-width: 640px) {
-        .project-dialog {
-          width: calc(100% - 1rem);
-          max-height: min(64dvh, 34rem);
-          margin: auto auto max(0.5rem, env(safe-area-inset-bottom));
+        .project-dialog[open] {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          right: auto;
+          bottom: auto;
+          width: calc(100% - 2rem);
+          max-height: min(70dvh, 34rem);
+          margin: 0;
+          transform: translate(-50%, -50%);
           border-radius: 1.25rem;
         }
       }
@@ -683,6 +690,12 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
+
+      const navigationEntry = performance.getEntriesByType("navigation")[0];
+      if (navigationEntry && navigationEntry.type === "reload") {
+        history.scrollRestoration = "manual";
+        requestAnimationFrame(() => window.scrollTo(0, 0));
+      }
 
       document.querySelectorAll("[data-project-dialog]").forEach((button) => {
         button.addEventListener("click", () => {
